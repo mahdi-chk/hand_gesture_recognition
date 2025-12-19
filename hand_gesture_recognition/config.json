@@ -1,0 +1,83 @@
+{
+  "project": {
+    "name": "Hand Gesture Recognition",
+    "description": "A comprehensive system for recognizing hand gestures using deep learning",
+    "version": "1.0.0",
+    "author": "Your Name"
+  },
+  "data": {
+    "image_size": [224, 224],
+    "augmentation": true,
+    "test_split": 0.2,
+    "validation_split": 0.2,
+    "random_seed": 42,
+    "gestures": [
+      "palm",
+      "fist",
+      "victory",
+      "ok",
+      "thumbs_up"
+    ]
+  },
+  "preprocessing": {
+    "normalization": "0-1",
+    "color_space": "RGB",
+    "hand_detection_method": "skin_color_hsv",
+    "apply_morphological_ops": true
+  },
+  "training": {
+    "batch_size": 32,
+    "epochs": 100,
+    "learning_rate": 0.001,
+    "optimizer": "Adam",
+    "loss_function": "SparseCategoricalCrossentropy",
+    "metrics": [
+      "accuracy",
+      "top_2_accuracy"
+    ]
+  },
+  "callbacks": {
+    "early_stopping": {
+      "enabled": true,
+      "monitor": "val_loss",
+      "patience": 15,
+      "restore_best_weights": true
+    },
+    "reduce_lr": {
+      "enabled": true,
+      "monitor": "val_loss",
+      "factor": 0.5,
+      "patience": 5,
+      "min_lr": 1e-7
+    },
+    "model_checkpoint": {
+      "enabled": true,
+      "monitor": "val_accuracy",
+      "save_best_only": true
+    }
+  },
+  "models": {
+    "available_models": [
+      "simple_cnn",
+      "cnn",
+      "efficient",
+      "cnn_lstm"
+    ],
+    "default_model": "simple_cnn",
+    "input_shape": [224, 224, 3]
+  },
+  "inference": {
+    "confidence_threshold": 0.6,
+    "smooth_predictions": true,
+    "smoothing_window": 5,
+    "display_top_k": 3
+  },
+  "directories": {
+    "data_raw": "data/raw",
+    "data_processed": "data/processed",
+    "models": "models",
+    "logs": "logs",
+    "notebooks": "notebooks",
+    "predictions": "predictions"
+  }
+}
