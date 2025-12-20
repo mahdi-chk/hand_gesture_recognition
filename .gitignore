@@ -1,0 +1,17 @@
+# Datasets & fichiers lourds
+hand_gesture_recognition/data/processed/*.pkl
+
+# Fichiers ML courants
+*.h5
+*.pt
+*.pth
+*.ckpt
+*.joblib
+
+# Environnements
+venv/
+.env
+
+# Python
+__pycache__/
+*.pyc
