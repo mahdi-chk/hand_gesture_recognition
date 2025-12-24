@@ -237,6 +237,7 @@ Les contributions sont les bienvenues! Pour contribuer:
 ## 👨‍💻 Auteur
 
 **El Mahdi Chakouch**
+**Younes Sadoq**
 
 - GitHub: [@mahdi-chk](https://github.com/mahdi-chk)
 - LinkedIn: [El Mahdi Chakouch](https://linkedin.com/in/mahdi-chakouch)
